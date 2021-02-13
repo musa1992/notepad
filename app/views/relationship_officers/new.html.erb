@@ -1,2 +1,42 @@
-<h1>RelationshipOfficers#new</h1>
-<p>Find me in app/views/relationship_officers/new.html.erb</p>
+
+<div class="signup-form">
+    <h2>Create Account</h2>
+    <%= form_for(@ro) do |f|%>
+        <div class="form-group">
+            <div class=input-group>
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <%= f.text_field :name, place_holder: "Name", class: "form-control"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class=input-group>
+                <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+                <%= f.text_field :email, place_holder: "Email", class: "form-control"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class=input-group>
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <%= f.password_field :password, place_holder: "Password", class: "form-control"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class=input-group>
+                <span class="input-group-addon">
+                    <i class="fa fa-lock"></i>
+                    <i class="fa fa -check"></i>
+                </span>
+                <%= f.password_field :password_confirmation, place_holder: "Confirm Password", class: "form-control"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <%= f.submit "Sign Up", class: "btn btn-primary btn-block btn-lg"%>
+        </div>
+        <p class="small text-center">By clicking the sign up button,you agree to out <br><a href="#">Terms &amp; Conditions</a>,
+        and <a href="#">Privacy Policy</a>.</p>
+    <% end %>
+    <div class="text-center">
+        Already have an account?
+        <a href="#">Login here</a>
+    </div>
+</div>

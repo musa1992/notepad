@@ -2,7 +2,7 @@ require 'test_helper'
 
 class RelationshipOfficersControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get relationship_officers_new_url
+    get signup_path
     assert_response :success
   end
 
