@@ -72,3 +72,4 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'rails-controller-testing', '~> 0.0.3'

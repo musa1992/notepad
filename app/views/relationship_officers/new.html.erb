@@ -1,7 +1,8 @@
 
 <div class="signup-form">
     <h2>Create Account</h2>
-    <%= form_for(@ro) do |f|%>
+    <%= form_for(@ro, url: signup_path) do |f|%>
+        <%= render 'shared/error_messages'%>
         <div class="form-group">
             <div class=input-group>
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
