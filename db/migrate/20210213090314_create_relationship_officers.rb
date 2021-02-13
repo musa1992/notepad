@@ -1,0 +1,10 @@
+class CreateRelationshipOfficers < ActiveRecord::Migration[5.2]
+  def change
+    create_table :relationship_officers do |t|
+      t.string :name
+      t.string :email
+
+      t.timestamps
+    end
+  end
+end
