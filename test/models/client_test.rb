@@ -36,4 +36,9 @@ class ClientTest < ActiveSupport::TestCase
     @client.phone_no = "1234567890"
     assert_not @client.valid?
   end
+
+  test "relationship officer id should be present" do
+    @client.relationship_officer_id = " "
+    assert_not @client.valid?
+  end
 end
