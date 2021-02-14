@@ -1,0 +1,29 @@
+<div class="signup-form">
+    <h2>Sign In</h2>
+    <%= form_tag '/login' do%>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+                <%= text_field_tag :email, nil, placeholder: "Email", class: "form-control" %>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <%= password_field_tag :password, nil, placeholder: "Password", class: "form-control" %>
+            </div>
+        </div>
+        <div class="form-group">
+            <%= submit_tag "Sign In",  class: "btn btn-primary btn-block btn-lg"%>
+        </div>
+
+        <div class="text-centre">
+            <a href="#">Forgot Password?</a>
+        </div>
+    <% end %>
+    <div class="text-centre">
+        Don't have an account?
+        <a><%= link_to "Create One", signup_path%></a>
+    </div>
+</div>
+
