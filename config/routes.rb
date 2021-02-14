@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/signup', to: 'relationship_officers#new'
   post '/signup', to: 'relationship_officers#create'
+  get '/addclient', to: 'clients#new'
   resources :relationship_officers
+  resources :clients, only: [:new,:create, :edit, :destroy]
   
 end
