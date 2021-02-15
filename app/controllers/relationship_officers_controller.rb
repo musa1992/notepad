@@ -10,6 +10,7 @@ class RelationshipOfficersController < ApplicationController
   def create
     @ro = RelationshipOfficer.new(ro_params)
     if @ro.save
+      log_in @ro
       flash[:success] = "Welcome!"
       redirect_to @ro
     else
