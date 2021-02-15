@@ -1,1 +1,6 @@
-<%= @ro.name%>, <%= @ro.email%>
+<%= current_user.name%>, <%= current_user.email%>
+
+<%= link_to "Log Out", logout_path, method: :delete%>
+
+<p>This will be the profile page for the user </p>
+<p>Account editing is done on this page</p>
