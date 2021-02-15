@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'relationship_officers#new'
   post '/signup', to: 'relationship_officers#create'
   get '/addclient', to: 'clients#new'
+  post '/addclient', to: 'clients#create'
   resources :relationship_officers
   resources :clients, only: [:new,:create, :edit, :destroy]
   

@@ -3,8 +3,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    officer = RelationshipOfficer.find_by(email: params[:email].downcase)
-    if officer && officer.authenticate(params[:password])
+    officer = RelationshipOfficer.find_by(email: params[:session][:email].downcase)
+    if officer && officer.authenticate(params[:session][:password])
       log_in officer
       redirect_to officer
     else

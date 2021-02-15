@@ -1,2 +1,6 @@
 <h1>home Page</h1>
 <p>list all loans due on this page plus other cool metrics and info</p>
+
+<% current_user.clients.each do |client|%>
+   <li><%= client.name%></li>
+<% end %>

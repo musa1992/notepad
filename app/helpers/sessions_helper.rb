@@ -13,7 +13,7 @@ module SessionsHelper
     end
 
     def log_out
-        session.delete[:relationship_officer_id]
+        reset_session
         @current_user = nil
     end
 end

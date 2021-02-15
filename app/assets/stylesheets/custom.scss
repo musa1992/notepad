@@ -2,6 +2,10 @@
 @import "bootstrap";
 @import "font-awesome";
 
+body {
+    padding-top: 70px;
+}
+
 /** sign up form **/
 
 .form-control, .form-control:focus, .input-group-addon {
@@ -104,3 +108,22 @@
         color: $state-danger-text;
     }
 }
+
+/** header **/
+nav {
+    padding-top: 20px;
+    p :hover {
+        text-decoration: none;
+    }
+    ul {
+        list-style: none;
+        li {
+            float: left;
+            padding: 0 10px;
+        }
+        li :hover {
+            text-decoration: none;
+        }
+    }
+}
+

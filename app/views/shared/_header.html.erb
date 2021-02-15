@@ -1,0 +1,16 @@
+<header>
+    <nav class="navbar  navbar-fixed-top">
+        <div class="container">
+            <p class="navbar-left"><%= link_to "LOGO", home_path%></p>
+            <ul class="navbar-right">
+                <li><%= link_to "Home", home_path%></li>
+                <li><%= link_to "Account", current_user%></li>
+                <% if logged_in?%>
+                    <li><%= link_to "Log out", logout_path, method: "delete"%></li>
+                <% else %>
+                    <li><%= link_to "Log in"%></li>
+                <% end %>
+            </ul>
+        </div>
+    </nav>
+</header>
