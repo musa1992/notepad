@@ -1,22 +1,36 @@
 
 <div class="container">
 <%= form_for(@client) do |f| %>
-
-    <%= f.label :name, "Name"%>
-    <%= f.text_field :name %>
-    <%= f.label :phone_no, "Phone No"%>
-    <%= f.text_field :phone_no %>
-    <%= f.label :due_date, "Date"%>
-    <%= f.text_field :due_date, class: "date"%>
-    <%= f.label :installment_amount, "Amount Due"%>
-    <%= f.text_field :installment_amount %>
-    <%= f.label :loan_duration, "Loan Duration"%>
-    <%= f.text_field :loan_duration %>
-    <%= f.label :end_date, "End"%>
-    <%= f.date_select :end_date %>
-
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :name, placeholder: "Names" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :phone_no, placeholder: "Phone Number" %>
+        </div>
+    </div>
+    <div class='form-group'>
+        <div class="input-group">
+            <%= f.text_field :due_date, placeholder: "Pick Due Date" ,class: "date"%>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.text_field :installment_amount, placeholder: "Enter Installment Amount" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            
+            <%= f.select :loan_duration, [5,7,10], {:prompt => "Pick Loan Duration"}%> 
+        </div>
+    </div>
+    
     <%= f.submit "Save"%>
     
 <% end %>
 
 </div>
+
