@@ -3,10 +3,18 @@
         <p>Welcome,</p>
         <h3><%= current_user.name%></h3>
     </div>
-    <div class="card total-dues">
-        <p>You have 3 daily tasks to complete today</p>
-        <p>Display total dues here</p>
-    </div>
+    <section class="row upper-section align-items-center">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 total-dues">
+            <p>You have 3 daily tasks to complete today</p>
+            <p>Display total dues here</p>
+        </div>
+        <%= link_to (addclient_path) do %>
+        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 add-client">
+            <i class="fa fa-user-plus"></i>
+            <p><%= link_to "Add Customer", addclient_path%></p>
+        </div>
+        <% end %>
+    </section>
     <section id="clients-due">
         <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
