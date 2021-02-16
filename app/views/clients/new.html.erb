@@ -1,5 +1,5 @@
-<h1>add client here</h1>
 
+<div class="container">
 <%= form_for(@client) do |f| %>
 
     <%= f.label :name, "Name"%>
@@ -7,7 +7,7 @@
     <%= f.label :phone_no, "Phone No"%>
     <%= f.text_field :phone_no %>
     <%= f.label :due_date, "Date"%>
-    <%= f.date_select :due_date %>
+    <%= f.text_field :due_date, class: "date"%>
     <%= f.label :installment_amount, "Amount Due"%>
     <%= f.text_field :installment_amount %>
     <%= f.label :loan_duration, "Loan Duration"%>
@@ -18,3 +18,5 @@
     <%= f.submit "Save"%>
     
 <% end %>
+
+</div>
