@@ -1,6 +1,41 @@
-<h1>home Page</h1>
-<p>list all loans due on this page plus other cool metrics and info</p>
+<section class="home-main container">
+    <div class="welcome">
+        <p>Welcome,</p>
+        <h3><%= current_user.name%></h3>
+    </div>
+    <div class="card total-dues">
+        <p>You have 3 daily tasks to complete today</p>
+        <p>Display total dues here</p>
+    </div>
+    <section id="clients-due">
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                Name
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                Phone No
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                Amount Due
+            </div>
+        </div>
+        <% current_user.clients.each do |client|%>
+            <div class="row clients">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <%= client.name%>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <%= client.phone_no%>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <%= client.installment_amount%>
+                </div>
+            </div>
+        <% end %>
+        
+    </section>
 
-<% current_user.clients.each do |client|%>
-   <li><%= client.name%></li>
-<% end %>
+</section>
+
+
+

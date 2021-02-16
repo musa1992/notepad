@@ -127,3 +127,25 @@ nav {
     }
 }
 
+/** home page **/
+
+.home-main {
+    h3 {
+        margin: 0px;
+    }
+    .total-dues {
+        width: 50%;
+        height: 150px;
+        margin: 30px 0px;
+        padding: 30px 30px;
+        background-color: #9dffeb;
+        border-radius: 15px;
+        text-align: center;
+    }
+}
+
+.clients {
+    border: 1px solid beige;
+    margin-bottom: 5px;
+}
+
