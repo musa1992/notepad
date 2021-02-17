@@ -27,13 +27,13 @@
                 Amount Due
             </div>
         </div>
-        <% current_user.clients.each do |client|%>
+        <% current_user.loans_due.each do |client|%>
             <div class="row clients">
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     <%= client.name%>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <%= client.loan_duration%>
+                    <%= client.phone_no%>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     <%= client.installment_amount%>
@@ -42,7 +42,7 @@
         <% end %>
         
     </section>
-
+   
 </section>
 
 

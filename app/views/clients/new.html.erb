@@ -2,23 +2,24 @@
 <div class="container">
 <%= form_for(@client) do |f| %>
     <div class="form-group">
+        <h1>Enter Client Details</h1>
         <div class="input-group">
-            <%= f.text_field :name, placeholder: "Names" %>
+            <%= f.text_field :name, placeholder: "Names", class: "form-control" %>
         </div>
     </div>
     <div class="form-group">
         <div class="input-group">
-            <%= f.text_field :phone_no, placeholder: "Phone Number" %>
+            <%= f.text_field :phone_no, placeholder: "Phone Number", class: "form-control"%>
         </div>
     </div>
     <div class='form-group'>
         <div class="input-group">
-            <%= f.text_field :due_date, placeholder: "Pick Due Date" ,class: "date"%>
+            <%= f.text_field :due_date, placeholder: "Pick Due Date" ,class: "date form-control"%>
         </div>
     </div>
     <div class="form-group">
         <div class="input-group">
-            <%= f.text_field :installment_amount, placeholder: "Enter Installment Amount" %>
+            <%= f.text_field :installment_amount, placeholder: "Enter Installment Amount", class: "form-control" %>
         </div>
     </div>
     <div class="form-group">
@@ -28,7 +29,7 @@
         </div>
     </div>
     
-    <%= f.submit "Save"%>
+    <%= f.submit "Save", class: "btn btn-lg btn-secondary" %>
     
 <% end %>
 
