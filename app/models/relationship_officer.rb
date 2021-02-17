@@ -17,4 +17,8 @@ class RelationshipOfficer < ApplicationRecord
         end
         @dues
     end
+
+    def total_dues
+        loans_due.map{|client| client.installment_amount}.reduce(:+)
+    end
 end
