@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_02_14_130202) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "phone_no"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_02_14_130202) do
     t.decimal "installment_amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "relationship_officer_id"
+    t.bigint "relationship_officer_id"
     t.index ["relationship_officer_id"], name: "index_clients_on_relationship_officer_id"
   end
 
@@ -34,4 +37,5 @@ ActiveRecord::Schema.define(version: 2021_02_14_130202) do
     t.index ["email"], name: "index_relationship_officers_on_email", unique: true
   end
 
+  add_foreign_key "clients", "relationship_officers"
 end

@@ -13,5 +13,15 @@ class Client < ApplicationRecord
          errors.add(:phone_no, "Invalid format,number should start with zero") if phone_no.split("").first != "0"
      end
 
+     def generate_loan_schedule(due_date, loan_duration)
+        days = 7.days
+        loan_schedule = []
+        loan_duration.times do 
+            due_date += days
+            loan_schedule << due_date
+        end
+        loan_schedule
+     end
+
 
 end
