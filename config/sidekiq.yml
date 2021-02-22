@@ -1,4 +1,4 @@
 :schedule:
   update_dues:
-    every: 24h
+    cron: '0 0 * * * Africa/Nairobi' #runs daily at 0000 hours
     class: UpdateDueDateWorker
