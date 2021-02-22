@@ -1,0 +1,4 @@
+:schedule:
+  update_dues:
+    every: 24h
+    class: UpdateDueDateWorker
