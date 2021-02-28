@@ -1,49 +1,73 @@
-<section class="home-main container">
-    <div class="welcome">
-        <p>Welcome,</p>
-        <h3><%= current_user.name%></h3>
-    </div>
-    <section class="row upper-section align-items-center">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 total-dues">
-            <p>You have 3 daily tasks to complete today</p>
-            <p>Total Dues: <%= current_user.total_dues%></p>
+<main class="home">
+    <section class="container">
+        <div class="welcome-section">
+            <div class="greeting">
+                <p>Welcome,<br><span class="user-name"><%= current_user.name%></span></p>
+            </div>
+            <div>
+                <button class="add-client-btn"><%= link_to "Add client", addclient_path%></button>
+            </div>
         </div>
-        <%= link_to (addclient_path) do %>
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 add-client">
-            <i class="fa fa-user-plus"></i>
-            <p><%= link_to "Add Customer", addclient_path%></p>
-        </div>
-        <% end %>
     </section>
-    <section id="clients-due">
+     <div class="container">
+        <p>Your stats for today</p>
+    </div>
+    <section class="stats container">
+        <div class="user-stats">
+        <div class="total-dues stats-box">
+            <div class="stat">
+                <h1><%= current_user.total_dues%></h1>
+            </div>
+            <div class="sec-text">
+                <p>Total Dues</p>
+            </div>
+        </div>
+        <div class="client-count stats-box">
+            <div class="stat">
+                <h1><%= current_user.client_count%></h1>
+            </div>
+            <div class="sec-text">
+                <p>Clients Due</p>
+            </div>
+        </div>
+        <div class="collection-rate stats-box">
+            <div class="stat">
+                <h1><%= current_user.total_dues%></h1>
+            </div>
+            <div class="sec-text">
+                <p>Collection Rate</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="clients-due container">
         <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                Name
+                <p>Name</p>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                Phone No
+                <p>Phone No</p>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                Amount Due
+                <p>Amount Due</p>
             </div>
         </div>
         <% current_user.loans_due.each do |client|%>
-            <div class="row clients">
+            <div class="row client">
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <%= client.name%>
+                    <p><%= client.name%></p>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <%= client.phone_no%>
+                    <p><%= client.phone_no  %></p>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <%= client.installment_amount%>
+                    <p><%= client.installment_amount%></p>
                 </div>
             </div>
         <% end %>
-        
     </section>
-</section>
-
+</main>
 
 
 

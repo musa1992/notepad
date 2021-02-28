@@ -4,7 +4,7 @@ class RelationshipOfficersController < ApplicationController
   end
 
   def show
-    @ro = RelationshipOfficer.find(params[:id])
+    
   end
 
   def create

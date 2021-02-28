@@ -1,37 +1,42 @@
 
 <div class="container">
+     <h1>Create new client</h1>
+<div class="client-form container">
 <%= form_for(@client) do |f| %>
     <div class="form-group">
-        <h1>Enter Client Details</h1>
         <div class="input-group">
-            <%= f.text_field :name, placeholder: "Names", class: "form-control" %>
+            <%= f.label :name, "CLIENT NAME"%>
+            <%= f.text_field :name,class: "form-control" %>
         </div>
     </div>
     <div class="form-group">
         <div class="input-group">
-            <%= f.text_field :phone_no, placeholder: "Phone Number", class: "form-control"%>
+            <%= f.label :phone_no, "PHONE NUMBER"%>
+            <%= f.text_field :phone_no, class: "form-control"%>
         </div>
     </div>
     <div class='form-group'>
         <div class="input-group">
-            <%= f.text_field :due_date, placeholder: "Pick Due Date" ,class: "date form-control"%>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-group">
-            <%= f.text_field :installment_amount, placeholder: "Enter Installment Amount", class: "form-control" %>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-group">
+            <%= f.label :due_date, "DUE DATE"%>
+             <i class="fa fa-calendar"></i>
+            <%= f.text_field :due_date,class: "date form-control"%>
             
-            <%= f.select :loan_duration, [5,7,10], {:prompt => "Pick Loan Duration"}%> 
         </div>
     </div>
-    
-    <%= f.submit "Save", class: "btn btn-lg btn-secondary" %>
-    
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.label :installment_amount, "INSTALMENT AMOUNT"%>
+            <%= f.text_field :installment_amount, class: "form-control" %>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <%= f.label :loan_duration, "LOAN DURATION"%>
+            <%= f.select :loan_duration, [5,7,10] %> 
+        </div>
+    </div>
+    <%= f.submit "Save", class: "btn btn-lg btn-secondary" %> 
 <% end %>
-
+</div>
 </div>
 

@@ -22,4 +22,8 @@ class RelationshipOfficer < ApplicationRecord
         return 0 if loans_due.empty?
         loans_due.map{|client| client.installment_amount}.reduce(:+)
     end
+
+    def client_count
+        loans_due.count
+    end
 end

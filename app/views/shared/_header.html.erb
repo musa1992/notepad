@@ -1,16 +1,49 @@
-<header>
-    <nav class="navbar  navbar-fixed-top">
-        <div class="container">
-            <p class="navbar-left"><%= link_to "LOGO", home_path%></p>
-            <ul class="navbar-right">
-                <li><%= link_to "Home", home_path%></li>
-                <li><%= link_to "Account", current_user%></li>
-                <% if logged_in?%>
-                    <li><%= link_to "Log out", logout_path, method: "delete"%></li>
-                <% else %>
-                    <li><%= link_to "Log in", login_path%></li>
-                <% end %>
-            </ul>
-        </div>
-    </nav>
-</header>
+<nav class="top-navbar container">
+    <div class= "main-navbar">
+        <% if logged_in?%>
+         <%= link_to "LOGO", home_path, class: "navbar-brand"%> 
+            <div class= "search-form">
+                <form action="" method="get" class="navbar-search" role="search">
+                    <div class="input">
+                        <input type="text" class="search-box" placeholder="Enter client number for search" name="q">
+                        <span class="input-group-search"><i class="fa fa-search"></i></span>
+                    </div>
+                </form>
+                <%= image_tag("menu.svg", alt: "open navigation", class: "mobile-cta", id: "menu")%>
+            </div>
+            <div id="mobile-nav" class="mobile-menu">
+                <div class="navigation-links">
+                    <%= image_tag("exit.svg", alt: "close navigation", class: "mobile-menu-exit", id: "close-menu")%>
+                    <ul>
+                        <li><%= link_to "Home", home_path %></li>
+                        <li><%= link_to "Profile", profile_path %></li>
+                        <li><%= link_to "Help", help_path %></li>
+                        <li><%= link_to "Sign Out", logout_path, method: "delete"%></li>
+                    </ul>
+                </div>
+             </div>
+        <% else %>
+            <div class="container">
+            <div class="nav-sign">
+                <div class="nav-sign-up">
+                    <%= link_to "LOGO", home_path, class: "navbar-brand-signup-page"%> 
+                    <div>
+                        <%= image_tag("menu.svg", alt: "open navigation", class: "mobile-cta", id: "menu-sign-up")%>
+                    </div>
+                </div> 
+                <div id="mobile-nav-signup" class="mobile-menu">
+                    <div class="navigation-links">
+                        <%= image_tag("exit.svg", alt: "close navigation", class: "mobile-menu-exit", id: "close-menu-signup")%>
+                        <ul>
+                            <li><%= link_to "About", "#"%></li>
+                            <li><%= link_to "Help", "#"%></li>
+                            <li><%= link_to "Sign In", login_path%></li>
+                        </ul>
+                    </div>
+                </div> 
+            </div> 
+            </div>
+           
+        <% end %>
+    </div>
+</nav>
