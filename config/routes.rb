@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'relationship_officers#show'
   get '/addclient', to: 'clients#new'
   post '/addclient', to: 'clients#create'
+  get '/viewclient', to: 'clients#show'
   resources :relationship_officers
   resources :clients, only: [:new,:create, :edit, :destroy] 
 end
