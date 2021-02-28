@@ -162,7 +162,7 @@ p, h1 {
 }
 .information-btn {
     padding: 1em;
-    border: 0.5px solid lightblue;
+    border: 0.5px solid lightblue; 
     background-color: #cff4f8;
     text-align: center;
 
@@ -172,14 +172,51 @@ p, h1 {
 .icon {
     display: none;
 }
-.vv {
-    background-color: #19aa8d;
-}
+
 .client-information {
     height: 70%;
     width: 100%;
     background-color: #19aa8d;
     padding-top: 2em;
+}
+
+/** client-personal-info partial ***/
+
+.personal-info {
+
+    small{
+        text-align: center;
+        color: white;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.create-new-loan {
+    margin: 2.5em 0;
+    border-top: 0.5px solid lightblue;
+}
+
+.client-page-forms {
+    margin: 1.5em 0;
+    input {
+        display: block;
+        width: 100%;
+        padding: 0.5em 0.5em;
+    }
+    label {
+        margin-top: 1em;
+    }
+}
+.client-btn {
+    background-color: #3d59f7;
+    width: 10em;
+    color: white;
+    border-radius: 25px;
+    padding: 0.5em 0;
+    border: none;
+    display: block;
+    margin: 0 auto;
 }
 
 

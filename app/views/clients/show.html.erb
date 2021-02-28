@@ -4,27 +4,26 @@
             <p>Client Name</p>
             <small>Phone No: 0123456789</small>
         </div>
-        
         <div class="aside-info-hub">
             <div class="information-btn">
                 <div class="icon">
                     <i class="fa fa-user"></i>
                 </div>
                 <div>
-                    <p>Personal Information</p>
+                    <%= link_to "Personal Information", clientinformation_path, remote: true, id: "p-info", class: "load-info"%>
                 </div>
             </div>
-            <div class="information-btn vv">
+            <div class="information-btn" id= "l-info">
                 <div class="icon">
                     <i class="fa fa-money"></i>
                 </div>
                 <div>
-                    <p>Loan Information</p>
+                    <%= link_to "Loan Information", loaninformation_path, remote: true, id: "l-info", class: "load-info"%>
                 </div>
             </div>
         </div>
     </aside>
-    <section class="client-information">
-        render either the personal info or the loan info
+    <section id="client-info" class="client-information container">
+        
     </section>
 </main>

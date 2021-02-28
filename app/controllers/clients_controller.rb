@@ -16,7 +16,17 @@ class ClientsController < ApplicationController
     def show
         
     end
+    def client_information
+        respond_to do |format|
+            format.js {render :client_information}
+        end
+    end
 
+    def loan_information
+        respond_to do |format|
+            format.js {render :loan_information}
+        end
+    end
     private
 
      def client_params

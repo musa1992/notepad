@@ -24,6 +24,13 @@ document.addEventListener('turbolinks:load',() =>{
     if (signUpExit) {
       signUpNav.classList.add('mobile-menu')
     }
+
+    const clientLoadInfoLinks = document.querySelectorAll('load-info');
+  
+    clientLoadInfoLinks.forEach((link)=> {
+      link.addEventListener('click')
+    })
+    document.getElementById('p-info').click()    
 })
 
 
