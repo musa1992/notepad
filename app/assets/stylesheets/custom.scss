@@ -219,6 +219,35 @@ p, h1 {
     margin: 0 auto;
 }
 
+/* loan info partial **/
+
+.loan-schedule {
+    margin-bottom: 2.5em;
+    table {
+        width: 100%;
+        margin-top: 1.5em;
+        th,td {
+            padding: 0.5em;
+            border: 0.5px solid whitesmoke; 
+            text-align: center; 
+        }
+    }
+}
+
+.other-loan-info {
+    border-top: 0.5px solid lightblue;
+    padding: 1em 0;
+    
+    h3 {
+        margin-bottom: 1em;
+    }
+    p {
+        display: block;
+        margin-bottom: 1em;
+    }
+}
+
+
 
 /** sign up form **/
 

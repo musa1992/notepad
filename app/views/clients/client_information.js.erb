@@ -1,1 +1,13 @@
-document.querySelector('#client-info').insertAdjacentHTML('afterbegin', '<%= j render 'shared/client_personal_info'%>');
+
+if (document.getElementById('client-info').hasChildNodes()){
+
+    while (document.getElementById('client-info').firstChild){
+        document.getElementById('client-info').removeChild(document.getElementById('client-info').lastChild)
+    }
+    document.querySelector('#client-info').insertAdjacentHTML('afterbegin', '<%= j render 'shared/client_personal_info'%>');
+}else{
+     document.querySelector('#client-info').insertAdjacentHTML('afterbegin', '<%= j render 'shared/client_personal_info'%>');
+}
+
+
+

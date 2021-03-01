@@ -6,6 +6,8 @@ document.addEventListener('turbolinks:load',() =>{
   const menuSignUp = document.getElementById('menu-sign-up');
   const signUpExit = document.getElementById('close-menu-signup');
   const signUpNav = document.getElementById('mobile-nav-signup');
+
+ 
     if (mobileBtn){
       mobileBtn.addEventListener('click', ()=> {
         mobileNav.classList.remove('mobile-menu')
