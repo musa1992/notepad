@@ -353,6 +353,9 @@ p, h1 {
 }
 
 @media only screen and (min-width: 767.98px) {
+    .container {
+        width: 100%;
+    }
     /** navigation bar ***/
 
     /** navigation on sign up page **/
@@ -440,6 +443,43 @@ p, h1 {
     background-color: inherit;
     color: black;
 }
+
+/** client show page **/
+.show-client {
+    display: flex;
+}
+.client-aside {
+    padding-top: 4em;
+}
+#client-info {
+    width: 72%;
+    
+}
+.aside-info-hub{
+    display: block;
+    margin-top: 5em;
+}
+.icon {
+    display: block;
+    margin-right: 15px;
+}
+.information-btn {
+    display: flex;
+}
+
+#personal-information {
+   h3{
+       text-align: center;
+   }
+}
+
+#loan-info {
+    h3{
+        text-align: center;
+    }
+}
+
+
    
 }
 
