@@ -24,5 +24,4 @@ class Client < ApplicationRecord
         loan_schedule
      end
 
-
 end

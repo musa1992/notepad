@@ -1,8 +1,8 @@
-<main class="show-client container">
+<section class="show-client container" id="viewclient">
     <aside class="client-aside">
         <div>
-            <p>Client Name</p>
-            <small>Phone No: 0123456789</small>
+            <p><%= @client.name%></p>
+            <small>Phone No: <%= @client.phone_no%></small>
         </div>
         <div class="aside-info-hub">
             <div class="information-btn">
@@ -26,4 +26,4 @@
     <section id="client-info" class="client-information container">
         
     </section>
-</main>
+</section>

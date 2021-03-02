@@ -26,4 +26,9 @@ class RelationshipOfficer < ApplicationRecord
     def client_count
         loans_due.count
     end
+
+    def search(search)
+        self.clients.find_by(phone_no: search)
+    end
+
 end

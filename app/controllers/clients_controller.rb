@@ -14,8 +14,9 @@ class ClientsController < ApplicationController
     end
 
     def show
-        
+      @client = current_user.search(params[:phone_no])
     end
+
     def client_information
         respond_to do |format|
             format.js {render :client_information}
@@ -32,4 +33,5 @@ class ClientsController < ApplicationController
      def client_params
         params.require(:client).permit(:name,:phone_no,:due_date,:installment_amount,:loan_duration,:end_date)
      end
+
 end
