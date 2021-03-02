@@ -487,4 +487,49 @@ p, h1 {
     .stats-box {
         width: 500px;
     }
+
+    /** view client page **/
+
+    .inner-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    .inner-wrapper > * {
+        flex-basis: 100%;
+    }
+
+    /** cliet info page **/
+    .create-new-loan {
+        border-top: none;
+        margin-top: 0;
+        form {
+            padding-top: 2em;
+            padding-left: 4em;
+        }
+
+    }
+    .inner-wrapper > * + * {
+        border-left: 0.5px solid lightblue;
+    }
+    .client-page-forms {
+        input {
+            width: 80%;
+        }
+    }
+
+    /** loan info page */
+    .other-loan-info {
+        border-top: none;
+        margin-top: 0;
+        padding-left: 4em;
+    }
+    #loan-info {
+        padding-bottom: 2em;
+    }
+    .loan-schedule {
+        table {
+            width: 80%
+        }
+       
+    }
 }
