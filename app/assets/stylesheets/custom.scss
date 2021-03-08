@@ -3,9 +3,14 @@
 @import "font-awesome";
 
 body {
-    background-color: #e2f3f5;
     margin: 0;
-
+    background-color: #DFE1EE;
+}
+.home {
+    background-color: #F5F5FD;
+}
+.btn {
+    background-color: #14121F;
 }
 a {
     text-decoration: none;
@@ -13,6 +18,11 @@ a {
 
 p, h1 {
     margin: 0;
+
+}
+
+.toggle-display {
+    display: none;
 }
 
 /** nav bar **/
@@ -38,9 +48,9 @@ p, h1 {
     right: 0;
     z-index: 999;
     width: 66%;
-    background-color: #0e1539;
     height: 100vh;
     padding: 1em;
+    background-color: black;
     ul {
         list-style: none;
         padding-left: 0;
@@ -81,7 +91,6 @@ p, h1 {
 .input {
     input {
         border: none;
-        background-color: #cff4f8;
         padding: 0.5em 1em;
         border-radius: 20px;
         color:grey;
@@ -94,7 +103,7 @@ p, h1 {
 /** Home page ***/
 
 .home {
-    background-color: #eef0f0;
+
     margin-top: 1em;
 }
 
@@ -111,7 +120,6 @@ p, h1 {
         border-radius: 20px;
         padding: 0.5em 2em;
         border: none;
-        background-color: #3d59f7;
         a {
             color: white;
         }
@@ -122,7 +130,7 @@ p, h1 {
 }
 
 .stats-box {
-    border: 0.5px solid lightblue;
+    border: 0.5px solid black;
     position: relative;
     margin: 20px auto;
     padding: 3em 0;
@@ -131,9 +139,10 @@ p, h1 {
 
 .stat {
     text-align: center;
+    color: #14121F;
 }
 .sec-text {
-    background-color: #3d59f7;
+
     padding: 0.25em 0.5em;
     color: white;
     position: absolute;
@@ -148,7 +157,7 @@ p, h1 {
 }
 
 .client {
-    border: 0.5px solid lightblue;
+    border: 0.5px solid rgb(242, 242, 255);
     box-shadow: 0.5px 1px 1.5px rgba(0,0,0,0.3);
     padding: 1em 0;
     border-radius: 5px;
@@ -162,24 +171,29 @@ p, h1 {
 }
 .information-btn {
     padding: 1em;
-    border: 0.5px solid lightblue; 
-    background-color: #cff4f8;
-    text-align: center;
+    border: 0.5px solid black; 
 
+    text-align: center;
     width: 100%;
+    cursor: pointer;
 }
 
 .icon {
     display: none;
 }
 
+
 .client-information {
     height: 70%;
     width: 100%;
-    background-color: #19aa8d;
+   
     padding-top: 2em;
 }
+/**add client page **/
 
+.add-client-form {
+    margin: 0.5em 0;
+}
 /** client-personal-info partial ***/
 
 .personal-info {
@@ -188,35 +202,37 @@ p, h1 {
         text-align: center;
         color: white;
         display: block;
-        margin: 0 auto;
+        margin: 0.5em auto;
     }
 }
 
 .create-new-loan {
     margin: 2.5em 0;
-    border-top: 0.5px solid lightblue;
+    border-top: 0.5px solid black;
 }
 
 .client-page-forms {
-    margin: 1.5em 0;
-    input {
-        display: block;
-        width: 100%;
-        padding: 0.5em 0.5em;
-    }
-    label {
-        margin-top: 1em;
-    }
+    margin: 1.5em 0; 
+}
+
+.client-input {
+    display: block;
+    width: 80%;
+    padding: 0.5em 0.5em;
+}
+.client-label{
+    margin-top: 1em;
 }
 .client-btn {
-    background-color: #3d59f7;
+ 
     width: 10em;
     color: white;
     border-radius: 25px;
     padding: 0.5em 0;
     border: none;
     display: block;
-    margin: 0 auto;
+    margin: 2em auto;
+
 }
 
 /* loan info partial **/
@@ -228,14 +244,14 @@ p, h1 {
         margin-top: 1.5em;
         th,td {
             padding: 0.5em;
-            border: 0.5px solid whitesmoke; 
+            border: 0.5px solid black; 
             text-align: center; 
         }
     }
 }
 
 .other-loan-info {
-    border-top: 0.5px solid lightblue;
+    border-top: 0.5px solid black;
     padding: 1em 0;
     
     h3 {
@@ -246,6 +262,7 @@ p, h1 {
         margin-bottom: 1em;
     }
 }
+
 
 
 
@@ -479,11 +496,27 @@ p, h1 {
     }
 }
 
-
+/** add client page **/
+.client-form {
+    h3 {
+        text-align: center;
+    }
    
+    .add-client-form {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+
 }
 
 @media only screen and (min-width: 1080px) {
+    .home{
+        padding: 0.5em 2em;
+        margin: 0 2em;
+        border-radius: 25px;
+    }
     .stats-box {
         width: 500px;
     }
@@ -531,5 +564,21 @@ p, h1 {
             width: 80%
         }
        
+    }
+
+    .client-form{
+        .form-client-add-page{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .form-client-add-page > * {
+            
+            flex-basis: 100%;
+            margin: 2em 0;
+        }
+
+        .add-client-form {
+            margin-bottom: 1.5em;
+        }
     }
 }

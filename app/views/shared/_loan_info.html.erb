@@ -1,5 +1,6 @@
 <main class="container" id="loan-info">
     <div class="inner-wrapper">
+    
         <div class="loan-schedule">
             <h3>Loan Schedule</h3>
             <table>
@@ -7,38 +8,24 @@
                     <th>Instalment</th>
                     <th>Instalment Dates</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>01/03/2021</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>01/03/2021</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>01/03/2021</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>01/03/2021</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>01/03/2021</td>
-                </tr>
-                
+                <%client.loan_schedule.each_with_index do |date, idx| %>
+                    <tr>
+                        <td><%= idx + 1 %></td>
+                        <td><%= client.format_date(date) %></td> 
+                    </tr>
+
+                <% end %>
             </table>
         </div>
         <div class="other-loan-info">
             <h3>Loan Information</h3>
-            <p>Initial Loan Balance:</p>
+            <p>Initial Loan Balance: <%= client.installment_amount * client.loan_duration%></p>
             <div>
                 <p>OLB</p>
                 <p>pie chart with percentage in middle</p>
             </div>
-            <p>instalment Amount</p>
-            <p>Loan Duration</p>
+            <p>instalment Amount: <%= client.installment_amount%></p>
+            <p>Loan Duration: <%= client.loan_duration%></p>
         </div>
     </div>
 </main>

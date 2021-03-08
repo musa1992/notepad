@@ -10,6 +10,7 @@ class RelationshipOfficer < ApplicationRecord
     validates :password, presence: true, length: {minimum: 6}
     has_many :clients
 
+
     def loans_due
         @dues = []
         self.clients.each do |client|
@@ -30,5 +31,5 @@ class RelationshipOfficer < ApplicationRecord
     def search(search)
         self.clients.find_by(phone_no: search)
     end
-
+    
 end

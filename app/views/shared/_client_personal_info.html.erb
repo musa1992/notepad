@@ -3,39 +3,41 @@
         <div class="personal-info">
             <h3>Personal Information</h3>
             <small>Edit client's personal details</small>
-            <form action="post" class="client-page-forms">
+            <%= form_for client ,class: "client-page-forms" do |form| %>
                 <div>
-                    <label for="">First name</label>
-                    <input type="text">
+                    <%= form.label :name , "First name", class: "client-label"%>
+                    <%= form.text_field :name , class: "client-input"%>
                 </div>
                 <div>
-                    <label for="">Last name</label>
-                    <input type="text" name="" id="">
+                    <%= form.label :name , "Last Name", class: "client-label"%>
+                    <%= form.text_field :name , class: "client-input"%> 
                 </div>
                 <div>
-                    <label for="">Phone Number</label>
-                    <input type="text" name="" id="">
+                    <%= form.label :phone_no , "Phone Number", class: "client-label"%>
+                    <%= form.text_field :phone_no, class: "client-input" %> 
                 </div>
-            </form>
-            <button class="client-btn">Save Changes</button>
+                 <%= form.submit "Save Changes", class: "client-btn btn"%>
+            <% end %>
+           
         </div>
         <div class="create-new-loan">
             <h3>Add new loan</h3>
-            <form action="" class="client-page-forms">
+            <%= form_for client ,class: "client-page-forms" do |form| %>
                 <div>
-                    <label for="">Loan Amount</label>
-                    <input type="text">
+                    <%= form.label :loan_amount , "Loan Amount", class: "client-label"%>
+                    <%= form.text_field :loan_duration, class: "client-input"%> <!--add loan_amount coloumn to db remove loan_duration is just a place holder> <-->
                 </div>
                 <div>
-                    <label for="">Loan Duration</label>
-                    <input type="text">
+                    <%= form.label :loan_duration , "Loan Duration", class: "client-label"%>
+                    <%= form.text_field :loan_duration, class: "client-input" %> 
                 </div>
                 <div>
-                    <label for="">Instalment Amount</label>
-                    <input type="text">
+                    <%= form.label :installment_amount , "Instalment Amount", class: "client-label"%>
+                    <%= form.text_field :installment_amount, class: "client-input" %> 
                 </div>
-            </form>
-            <button class="client-btn">Add</button>
+                 <%= form.submit "Add", class: "client-btn btn"%>
+            <% end %>
+           
         </div>
     </div>
 </section>

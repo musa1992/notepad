@@ -4,7 +4,7 @@
          <%= link_to "LOGO", home_path, class: "navbar-brand"%> 
             <div class= "search-form">
                 
-                <%= form_with url: viewclient_path, method: :get, local: true do |form| %>
+                <%= form_with url: viewclient_path, method: :get, local: true, id: "search" do |form| %>
                     <div class="input">
                         <%= form.text_field :phone_no, placeholder: 'Enter client number'%>
                         <span class="input-group-search"><i class="fa fa-search"></i></span>
@@ -27,7 +27,7 @@
             <div class="container">
             <div class="nav-sign">
                 <div class="nav-sign-up">
-                    <%= link_to "LOGO", home_path, class: "navbar-brand-signup-page"%> 
+                    <p class="navbar-brand-signup-page"> LOGO </p>
                     <div>
                         <%= image_tag("menu.svg", alt: "open navigation", class: "mobile-cta", id: "menu-sign-up")%>
                     </div>

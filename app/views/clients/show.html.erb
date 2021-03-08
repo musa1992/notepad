@@ -2,28 +2,34 @@
     <aside class="client-aside">
         <div>
             <p><%= @client.name%></p>
-            <small>Phone No: <%= @client.phone_no%></small>
+            <small id="phone-no">Phone No: <%= @client.phone_no%></small>
         </div>
         <div class="aside-info-hub">
-            <div class="information-btn">
+            <div class="information-btn" id="p-info">
                 <div class="icon">
                     <i class="fa fa-user"></i>
                 </div>
                 <div>
-                    <%= link_to "Personal Information", clientinformation_path, remote: true, id: "p-info", class: "load-info"%>
+                    <p>Personal Information</p>
                 </div>
             </div>
-            <div class="information-btn" id= "l-info">
+            <div class="information-btn" id="l-info">
                 <div class="icon">
                     <i class="fa fa-money"></i>
                 </div>
                 <div>
-                    <%= link_to "Loan Information", loaninformation_path, remote: true, id: "l-info", class: "load-info"%>
+                    <p>Loan Information</p>
                 </div>
             </div>
         </div>
     </aside>
     <section id="client-info" class="client-information container">
+        <div id="client-display">
+            <%= render 'shared/client_personal_info', client: @client%>
+        </div>
+        <div id="loan-display">
+            <%= render 'shared/loan_info', client: @client %>
+        </div>
         
     </section>
 </section>

@@ -1,41 +1,56 @@
 
 <div class="container">
-     <h1>Create new client</h1>
+     
 <div class="client-form container">
+<h3>Create new client</h3>
+
 <%= form_for(@client) do |f| %>
-    <div class="form-group">
-        <div class="input-group">
-            <%= f.label :name, "CLIENT NAME"%>
-            <%= f.text_field :name,class: "form-control" %>
+<div class="form-client-add-page">
+    <div class="right-section"> 
+        <div class="add-client-form">
+            <div>
+                <%= f.label :name, "Client Name", class: "client-label"%>
+                <%= f.text_field :name, class: "client-input" %>
+            </div>
+        </div>
+        <div class="add-client-form">
+            <div>
+                <%= f.label :phone_no, "Phone Number", class: "client-label"%>
+                <%= f.text_field :phone_no, class: "client-input"%>
+            </div>
+        </div>
+
+        <div class="add-client-form">
+            <div>
+                <%# <%= f.label :phone_no, "Loan Amount", class: "client-label"%>  
+                <%# <%= f.text_field :phone_no, class: "client-input"%>
+            </div>
+        </div>
+    </div> 
+    <div class="left-section">
+        <div class="add-client-form">
+            <div>
+                <%= f.label :due_date, "Due Date", class: "client-label"%>
+                <i class="fa fa-calendar"></i>
+                <%= f.text_field :due_date,class: "date client-input"%>
+                
+            </div>
+        </div>
+        <div class="add-client-form">
+            <div>
+                <%= f.label :installment_amount, "Instalment Amount", class: "client-label"%>
+                <%= f.text_field :installment_amount, class: "client-input" %>
+            </div>
+        </div>
+        <div class="add-client-form">
+            <div>
+                <%= f.label :loan_duration, "Loan Duration", class: "client-label"%>
+                <%= f.select :loan_duration, [5,7,10] %> 
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <div class="input-group">
-            <%= f.label :phone_no, "PHONE NUMBER"%>
-            <%= f.text_field :phone_no, class: "form-control"%>
-        </div>
-    </div>
-    <div class='form-group'>
-        <div class="input-group">
-            <%= f.label :due_date, "DUE DATE"%>
-             <i class="fa fa-calendar"></i>
-            <%= f.text_field :due_date,class: "date form-control"%>
-            
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-group">
-            <%= f.label :installment_amount, "INSTALMENT AMOUNT"%>
-            <%= f.text_field :installment_amount, class: "form-control" %>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-group">
-            <%= f.label :loan_duration, "LOAN DURATION"%>
-            <%= f.select :loan_duration, [5,7,10] %> 
-        </div>
-    </div>
-    <%= f.submit "Save", class: "btn btn-lg btn-secondary" %> 
+</div>
+    <%= f.submit "Save", class: "client-btn btn" %> 
 <% end %>
 </div>
 </div>

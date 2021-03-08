@@ -6,7 +6,10 @@ document.addEventListener('turbolinks:load',() =>{
   const menuSignUp = document.getElementById('menu-sign-up');
   const signUpExit = document.getElementById('close-menu-signup');
   const signUpNav = document.getElementById('mobile-nav-signup');
-
+  const clientDisplay = document.getElementById('client-display');
+  const loanDisplay = document.getElementById('loan-display');
+  const clientInfoBtn = document.getElementById('p-info');
+  const loanInfoBtn = document.getElementById('l-info');
  
     if (mobileBtn){
       mobileBtn.addEventListener('click', ()=> {
@@ -27,12 +30,23 @@ document.addEventListener('turbolinks:load',() =>{
       signUpNav.classList.add('mobile-menu')
     }
 
-    const clientLoadInfoLinks = document.querySelectorAll('load-info');
-  
-    clientLoadInfoLinks.forEach((link)=> {
-      link.addEventListener('click')
-    })
-    document.getElementById('p-info').click()    
+    if (clientInfoBtn) {
+      clientInfoBtn.addEventListener('click', () => {
+        loanDisplay.classList.add('toggle-display')
+        clientDisplay.classList.remove('toggle-display')
+      })
+    }
+
+    if (loanInfoBtn) {
+      loanInfoBtn.addEventListener('click', ()=> {
+        loanDisplay.classList.remove('toggle-display')
+        clientDisplay.classList.add('toggle-display')
+      })
+    }
+
+    clientInfoBtn.click();
+
+
 })
 
 

@@ -2,3 +2,7 @@
   update_dues:
     cron: '0 0 * * * Africa/Nairobi' #runs daily at 0000 hours
     class: UpdateDueDateWorker
+
+  update_status:
+    cron: '0 0 * * * Africa/Nairobi' #runs daily at 0000 hours
+    class: UpdateClientStatusWorker

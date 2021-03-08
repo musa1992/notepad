@@ -1,4 +1,6 @@
 class ClientsController < ApplicationController
+
+
     def new
         @client = Client.new
     end
@@ -15,19 +17,15 @@ class ClientsController < ApplicationController
 
     def show
       @client = current_user.search(params[:phone_no])
+      if @client.nil?
+        redirect_to request.referrer, notice: "Client not found"
+      end
     end
 
-    def client_information
-        respond_to do |format|
-            format.js {render :client_information}
-        end
+    def edit
+        @client = Client.find(params[:id])
     end
-
-    def loan_information
-        respond_to do |format|
-            format.js {render :loan_information}
-        end
-    end
+    
     private
 
      def client_params
