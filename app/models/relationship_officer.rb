@@ -28,7 +28,7 @@ class RelationshipOfficer < ApplicationRecord
     end
 
     def activate
-        update_coloumns(activated: true, activated_at: Time.zone.now)
+        update_columns(activated: true, activated_at: Time.zone.now)
     end
 
     def send_activation_link
