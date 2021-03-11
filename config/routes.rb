@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   get '/viewclient', to: 'clients#show'
   resources :relationship_officers
   resources :clients 
-  
+  resources :account_activations, only: [:edit]
 end
