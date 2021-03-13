@@ -22,8 +22,12 @@ class ClientsController < ApplicationController
       end
     end
 
-    def edit
-        @client = Client.find(params[:id])
+    def update
+        # @client = Client.find(params[:id])
+        Client.update_client_details(params)
+        respond_to do |format|
+            format.js
+        end
     end
     
     private

@@ -3,7 +3,7 @@
         <div class="personal-info">
             <h3>Personal Information</h3>
             <small>Edit client's personal details</small>
-            <%= form_for client ,class: "client-page-forms" do |form| %>
+            <%= form_for client ,remote: true,class: "client-page-forms", id: "edit-client" do |form| %>
                 <div>
                     <%= form.label :name , "First name", class: "client-label"%>
                     <%= form.text_field :name , class: "client-input"%>

@@ -10,6 +10,7 @@ document.addEventListener('turbolinks:load',() =>{
   const loanDisplay = document.getElementById('loan-display');
   const clientInfoBtn = document.getElementById('p-info');
   const loanInfoBtn = document.getElementById('l-info');
+  
  
     if (mobileBtn){
       mobileBtn.addEventListener('click', ()=> {
@@ -45,8 +46,7 @@ document.addEventListener('turbolinks:load',() =>{
     }
 
     clientInfoBtn.click();
-
-
+    
 })
 
 

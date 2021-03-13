@@ -11,6 +11,25 @@ class Client < ApplicationRecord
     def format_date(date)
         date.split(" ").first
     end
+
+    def self.update_client_details(update_params)
+        client = Client.find(update_params[:id])
+        client_details = update_params[:client]
+        client_details.each do |key, value|
+            column = key
+            case column
+
+            when 'phone_no'
+                client.update_columns(phone_no: value)
+
+            when 'name'
+                client.update_columns(name: value)
+            end
+        end
+     end
+
+
+
     private
 
      def valid_phone
@@ -26,4 +45,6 @@ class Client < ApplicationRecord
         end
         loan_schedule
      end
+
+     
 end
