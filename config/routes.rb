@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/addclient', to: 'clients#new'
   post '/addclient', to: 'clients#create'
   get '/viewclient', to: 'clients#show'
+  get '/search', to: 'clients#search'
   patch '/updatedetails', to: 'clients#update'
   resources :relationship_officers
   resources :clients 

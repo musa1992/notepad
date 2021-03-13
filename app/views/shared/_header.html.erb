@@ -4,7 +4,7 @@
          <%= link_to "LOGO", home_path, class: "navbar-brand"%> 
             <div class= "search-form">
                 
-                <%= form_with url: viewclient_path, method: :get, local: true, id: "search" do |form| %>
+                <%= form_with url: search_path, method: :get, local: true, id: "search" do |form| %>
                     <div class="input">
                         <%= form.text_field :phone_no, placeholder: 'Enter client number'%>
                         <span class="input-group-search"><i class="fa fa-search"></i></span>

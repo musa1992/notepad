@@ -15,15 +15,21 @@ class ClientsController < ApplicationController
         end
     end
 
+    def search
+        @client = current_user.search(params[:phone_no])
+        if @client.nil?
+            redirect_to request.referrer, notice: "Client not found"
+        else
+            render 'show'
+        end
+
+    end
+
     def show
-      @client = current_user.search(params[:phone_no])
-      if @client.nil?
-        redirect_to request.referrer, notice: "Client not found"
-      end
+ 
     end
 
     def update
-        # @client = Client.find(params[:id])
         Client.update_client_details(params)
         respond_to do |format|
             format.js

@@ -85,6 +85,8 @@ GEM
       tzinfo
     execjs (2.7.0)
     ffi (1.14.2)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     flatpickr (4.6.6.0)
     font-awesome-rails (4.7.0.7)
       railties (>= 3.2, < 7)
@@ -234,6 +236,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  figaro
   flatpickr
   font-awesome-rails (~> 4.7, >= 4.7.0.2)
   jbuilder (~> 2.5)
