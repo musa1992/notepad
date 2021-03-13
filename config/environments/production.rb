@@ -70,7 +70,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {host: host}
   ActionMailer::Base.smtp_settings = {
     :address => 'smtp.gmail.com',
-    :port => '587',
+    :port => '465',
     :authentication => :plain,
     :user_name => ENV['GMAIL_USERNAME'],
     :password => ENV['GMAIL_PASSWORD'],
