@@ -1,10 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
 
 body {
     margin: 0;
     background-color: #DFE1EE;
+    font-family: 'Poppins', sans-serif; 
 }
 .home {
     background-color: #F5F5FD;
