@@ -26,12 +26,12 @@ class ClientsController < ApplicationController
     end
 
     def show
- 
     end
 
     def update
         Client.update_client_details(params)
         respond_to do |format|
+            @client = Client.find(params[:id])
             format.js
         end
     end
