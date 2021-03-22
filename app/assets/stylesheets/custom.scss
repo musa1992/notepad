@@ -90,11 +90,20 @@ p, h1 {
     display: flex;
     justify-content: space-between;
 }
+
+.mobile-home {
+    i {
+        font-size: 2.2rem;
+        margin-top: 0.5rem;
+        margin-right: 1.4rem;
+    }
+}
 .input {
     input {
         border: none;
         padding: 0.5em 1em;
         border-radius: 20px;
+        width: 90%;
         color:grey;
     }
     .input-group-search {
@@ -375,6 +384,9 @@ p, h1 {
     .container {
         width: 100%;
     }
+    .mobile-home {
+        display: none;
+    }
     /** navigation bar ***/
 
     /** navigation on sign up page **/
@@ -581,6 +593,12 @@ p, h1 {
 
         .add-client-form {
             margin-bottom: 1.5em;
+        }
+    }
+
+    .search-form {
+        .input {
+            width: 600px;
         }
     }
 }

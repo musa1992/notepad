@@ -3,7 +3,9 @@
         <% if logged_in?%>
          <%= link_to "LOGO", home_path, class: "navbar-brand"%> 
             <div class= "search-form">
-                
+                <div class="mobile-home">
+                    <a href="/home"><i class="fa fa-home"></i></a>
+                </div>
                 <%= form_with url: search_path, method: :get, local: true, id: "search" do |form| %>
                     <div class="input">
                         <%= form.text_field :phone_no, placeholder: 'Enter client number'%>
