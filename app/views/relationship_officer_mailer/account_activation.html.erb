@@ -1,7 +1,0 @@
-<h1>The R.O Notepad</h1>
-
-<p>Hi, <%= @officer.name %>,</p>
-
-<P>Welcome to the officers note pad. Click the link to activate your account:</P>
-
-<%= link_to "Activate", edit_account_activation_url(@officer.activation_token, email: @officer.email) %>

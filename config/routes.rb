@@ -17,5 +17,4 @@ Rails.application.routes.draw do
   patch '/updatedetails', to: 'clients#update'
   resources :relationship_officers
   resources :clients 
-  resources :account_activations, only: [:edit]
 end

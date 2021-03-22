@@ -9,10 +9,9 @@ class RelationshipOfficersController < ApplicationController
   def create
     @ro = RelationshipOfficer.new(ro_params)
     if @ro.save
-      @ro.send_activation_link
-      flash[:info] = "Please check your email to activate your account"
-      
-      redirect_to signup_path
+      log_in @ro
+      flash[:info] = "Welcome"
+      redirect_to home_path
     else
       render 'new'
     end

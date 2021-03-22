@@ -66,17 +66,17 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default :charset => "utf-8" 
-  host = 'secure-earth-13436.herokuapp.com'
-  config.action_mailer.default_url_options = {host: host}
-  ActionMailer::Base.smtp_settings = {
-    :address => 'smtp.gmail.com',
-    :port => '465',
-    :authentication => :plain,
-    :user_name => ENV['GMAIL_USERNAME'],
-    :password => ENV['GMAIL_PASSWORD'],
-    :domain => 'secure-earth-13436.heroku.com',
-    :enable_starttls_auto => true
-  }
+  # host = 'secure-earth-13436.herokuapp.com'
+  # config.action_mailer.default_url_options = {host: host}
+  # ActionMailer::Base.smtp_settings = {
+  #   :address => 'smtp.gmail.com',
+  #   :port => '465',
+  #   :authentication => :plain,
+  #   :user_name => ENV['GMAIL_USERNAME'],
+  #   :password => ENV['GMAIL_PASSWORD'],
+  #   :domain => 'secure-earth-13436.heroku.com',
+  #   :enable_starttls_auto => true
+  # }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
