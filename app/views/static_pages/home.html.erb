@@ -1,3 +1,8 @@
+<div id = "myModal" class="payment-modal">
+    <%= render 'clients/modal'%>
+</div>
+
+
 <main class="home">
     <section class="container">
         <div class="welcome-section">
@@ -60,6 +65,9 @@
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     <p><%= client.phone_no  %></p>
+                    <div class="paid-checkbox">
+                        <input type="checkbox" name="paid" id="paid" data-toggle ="modal" data-target= "#modal-window" data-remote="true" data-url="/paid" data-params= "id=<%=client.id%>">
+                    </div>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     <p><%= client.installment_amount%></p>

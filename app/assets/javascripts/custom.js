@@ -1,5 +1,6 @@
 
 document.addEventListener('turbolinks:load',() =>{
+
   const mobileBtn = document.getElementById('menu');
   const mobileNav = document.getElementById('mobile-nav');
   const mobileMenuExit = document.getElementById('close-menu');
@@ -10,6 +11,14 @@ document.addEventListener('turbolinks:load',() =>{
   const loanDisplay = document.getElementById('loan-display');
   const clientInfoBtn = document.getElementById('p-info');
   const loanInfoBtn = document.getElementById('l-info');
+  // var checkbox = document.querySelector('input[name=paid]');
+
+  // checkbox.addEventListener( 'change', function(){
+  //   if(this.checked) {
+  //     document.getElementById('modal').modal();
+
+  //   } 
+  // });
   
  
     if (mobileBtn){
@@ -45,10 +54,8 @@ document.addEventListener('turbolinks:load',() =>{
       })
     }
 
-    clientInfoBtn.click();
-    
+    clientInfoBtn.click(); 
 })
-
 
 
 document.addEventListener('turbolinks:load', function() {

@@ -35,6 +35,12 @@ class ClientsController < ApplicationController
             format.js
         end
     end
+
+    def payment
+        respond_to do |format|
+            format.js
+        end
+    end
     
     private
 

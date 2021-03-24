@@ -10,6 +10,7 @@ gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
 gem 'pg'
 
 gem 'figaro'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -72,3 +73,4 @@ gem 'rails-controller-testing', '~> 0.0.3'
 gem 'flatpickr'
 gem 'sidekiq', '~> 5.0', '>= 5.0.5'
 gem 'sidekiq-scheduler', '~> 2.0', '>= 2.0.8'
+gem 'popper_js', '~> 1.9', '>= 1.9.9'

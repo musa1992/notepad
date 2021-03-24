@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/viewclient', to: 'clients#show'
   get '/search', to: 'clients#search'
   patch '/updatedetails', to: 'clients#update'
+  get '/paid', to: 'clients#payment'
   resources :relationship_officers
   resources :clients 
 end
