@@ -5,12 +5,12 @@
     <%= form_with url: clientpaid_path do |form| %>
         <div class="payment-status">
             <div>
-                <%= form.label "Full payment"%>
-                <%= form.check_box :paid%>
+                <%= form.label "Full payment" %>
+                <%= form.check_box :full_payment %>
             </div>
             <div>
                 <p>For partial payment, enter amount paid</p>
-                <%= form.text_field :amount, placeholder: 'Kshs', class: 'partial-payment'%>
+                <%= form.text_field :amount, placeholder: 'Kshs', id: 'partial-payment'%>
             </div>
                 <%= form.submit "Send", class: "modal-btn"%>
         </div>

@@ -11,15 +11,15 @@ document.addEventListener('turbolinks:load',() =>{
   const loanDisplay = document.getElementById('loan-display');
   const clientInfoBtn = document.getElementById('p-info');
   const loanInfoBtn = document.getElementById('l-info');
-  // var checkbox = document.querySelector('input[name=paid]');
+  var modalParent = document.getElementById('modal-parent');
 
-  // checkbox.addEventListener( 'change', function(){
-  //   if(this.checked) {
-  //     document.getElementById('modal').modal();
 
-  //   } 
-  // });
-  
+  modalParent.addEventListener( 'change', function(event) {
+    if (event.target && event.target.id == 'full_payment'){
+      document.getElementById('partial-payment').disabled = "true";
+    }
+  });
+
  
     if (mobileBtn){
       mobileBtn.addEventListener('click', ()=> {
@@ -56,7 +56,6 @@ document.addEventListener('turbolinks:load',() =>{
 
     clientInfoBtn.click(); 
 })
-
 
 document.addEventListener('turbolinks:load', function() {
     flatpickr('.date');
