@@ -1,5 +1,19 @@
 
   <div class="modal-content">
     <span class="close-modal">&times;</span>
-    <p>Some text in the Modal..</p>
+    <p class="title">Client payment status</p>
+    <%= form_with  do |form| %>
+        <div class="payment-status">
+            <div>
+                <%= form.label "Full payment"%>
+                <%= form.check_box :paid%>
+            </div>
+            <div>
+                <p>For partial payment, enter amount paid</p>
+                <%= form.text_field :amount, placeholder: 'Kshs', class: 'partial-payment'%>
+            </div>
+                <%= form.submit "Send", class: "modal-btn"%>
+        </div>
+    <% end %>
+    
   </div>

@@ -366,9 +366,7 @@ p, h1 {
 }
 
 /** modal styling **/
-#myModal {
-    
-}
+
 
 .payment-modal {
     display: none; /* Hidden by default */
@@ -389,6 +387,25 @@ p, h1 {
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 700px;
+    .title {
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+    label {
+        margin-right: 0.8rem;
+
+    }
+    .modal-btn {
+        width: 25%;
+        margin-top: 1rem;
+        background-color: #14121F;
+        color: white;
+        border: none;
+        font-size: 1em;
+        padding: 0.5em;
+        border-radius: 25px;
+    }
   }
   
   /* The Close Button */
@@ -404,6 +421,16 @@ p, h1 {
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .payment-status {
+      display: grid;
+      .partial-payment {
+          display: block;
+          width: 80%;
+          max-width: 160px;
+          margin-top: 1rem;
+      }
   }
 
 #error-explanation {
