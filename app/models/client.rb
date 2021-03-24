@@ -28,6 +28,12 @@ class Client < ApplicationRecord
         end
      end
 
+     def initial_loan_balance
+        self.installment_amount * self.loan_duration
+     end
+
+     
+
 
 
     private

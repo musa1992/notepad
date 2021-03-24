@@ -2,7 +2,7 @@
   <div class="modal-content">
     <span class="close-modal">&times;</span>
     <p class="title">Client payment status</p>
-    <%= form_with  do |form| %>
+    <%= form_with url: clientpaid_path do |form| %>
         <div class="payment-status">
             <div>
                 <%= form.label "Full payment"%>

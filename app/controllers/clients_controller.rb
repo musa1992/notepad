@@ -37,7 +37,15 @@ class ClientsController < ApplicationController
     end
 
     def payment
+        session[:client_id] = params[:id]
         respond_to do |format|
+            format.js
+        end
+    end
+
+    def client_payment
+        respond_to do |format|
+            @client_id = session[:client_id]
             format.js
         end
     end
