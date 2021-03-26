@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_184719) do
+ActiveRecord::Schema.define(version: 2021_03_26_173150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,17 @@ ActiveRecord::Schema.define(version: 2021_03_09_184719) do
     t.datetime "activated_at"
     t.string "activation_token"
     t.index ["email"], name: "index_relationship_officers_on_email", unique: true
+  end
+
+  create_table "short_loans", force: :cascade do |t|
+    t.decimal "loan_amount", precision: 10, scale: 2
+    t.decimal "initial_balance", precision: 10, scale: 2
+    t.decimal "outstanding_loan_balance", precision: 10, scale: 2
+    t.integer "loan_duration"
+    t.decimal "instalment_amount", precision: 10, scale: 2
+    t.text "loan_schedule", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "clients", "relationship_officers"

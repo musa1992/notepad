@@ -1,0 +1,2 @@
+class ShortLoan < ApplicationRecord
+end
