@@ -6,6 +6,7 @@ class ShortLoan < ApplicationRecord
     before_save :generate_loan_schedule(self.due_date, self.loan_duration)
     before_save :initial_loan_balance
     belongs_to :client
+    belongs_to :relationship_officer
 
     private 
 

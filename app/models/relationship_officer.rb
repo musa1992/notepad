@@ -11,6 +11,7 @@ class RelationshipOfficer < ApplicationRecord
     has_secure_password
     validates :password, presence: true, length: {minimum: 6}
     has_many :clients
+    has_many :short_loans, :through => :clients
 
     # def RelationshipOfficer.digest(string)
     #     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
@@ -36,15 +37,15 @@ class RelationshipOfficer < ApplicationRecord
     # end
     def loans_due
         @dues = []
-        self.clients.each do |client|
-            @dues << client if client.due_date == Date.today
+        self.short_loans.each do |loan|
+            @dues << loan if loan.due_date == Date.today
         end
         @dues
     end
 
     def total_dues
         return 0 if loans_due.empty?
-        loans_due.map{|client| client.installment_amount}.reduce(:+)
+        loans_due.map{|loan| loan.installment_amount}.reduce(:+)
     end
 
     def client_count
