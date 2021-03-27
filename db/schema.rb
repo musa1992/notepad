@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_085136) do
+ActiveRecord::Schema.define(version: 2021_03_27_092002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,9 +49,12 @@ ActiveRecord::Schema.define(version: 2021_03_27_085136) do
     t.datetime "updated_at", null: false
     t.datetime "due_date"
     t.bigint "client_id"
+    t.bigint "relationship_officer_id"
     t.index ["client_id"], name: "index_short_loans_on_client_id"
+    t.index ["relationship_officer_id"], name: "index_short_loans_on_relationship_officer_id"
   end
 
   add_foreign_key "clients", "relationship_officers"
   add_foreign_key "short_loans", "clients"
+  add_foreign_key "short_loans", "relationship_officers"
 end
