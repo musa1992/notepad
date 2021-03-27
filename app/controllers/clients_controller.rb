@@ -20,12 +20,14 @@ class ClientsController < ApplicationController
         if @client.nil?
             redirect_to request.referrer, notice: "Client not found"
         else
+            session[:client_id] = @client.id
             render 'show'
         end
 
     end
 
     def show
+
     end
 
     def update

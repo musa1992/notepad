@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   post 'clientpaid', to: 'clients#client_payment'
   resources :relationship_officers
   resources :clients 
+  resources :short_loans
 end
