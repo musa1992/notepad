@@ -10,7 +10,7 @@ class RelationshipOfficer < ApplicationRecord
               uniqueness: {case_sensitive: false}
     has_secure_password
     validates :password, presence: true, length: {minimum: 6}
-    has_many :clients
+    has_many :clients 
     has_many :short_loans, :through => :clients
 
     # def RelationshipOfficer.digest(string)
@@ -45,7 +45,7 @@ class RelationshipOfficer < ApplicationRecord
 
     def total_dues
         return 0 if loans_due.empty?
-        loans_due.map{|loan| loan.installment_amount}.reduce(:+)
+        loans_due.map{|loan| loan.instalment_amount}.reduce(:+)
     end
 
     def client_count

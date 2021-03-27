@@ -3,6 +3,7 @@ class ClientsController < ApplicationController
 
     def new
         @client = Client.new
+        @client.short_loans.build
     end
 
     def create
@@ -55,7 +56,7 @@ class ClientsController < ApplicationController
     private
 
      def client_params
-        params.require(:client).permit(:name,:phone_no,:due_date,:installment_amount,:loan_duration,:end_date)
+        params.require(:client).permit(:name,:phone_no,short_loans_attributes:[:relationship_officer_id,:loan_amount,:instalment_amount,:loan_duration,:due_date])
      end
 
 end

@@ -1,11 +1,11 @@
 class ShortLoan < ApplicationRecord
-    validates :loan_amount, presence: true, length: { in: 4..5 }, numericality: true
+    validates :loan_amount, presence: true, length: { in: 4..12 }, numericality: true
     validates :loan_duration, presence: true
-    validates :instalment_amount, presence: true, length: { in: 3..5 }, numericality: true
+    validates :instalment_amount, presence: true, length: { in: 3..12 }, numericality: true
     validates :due_date, presence: true
-    before_save :generate_loan_schedule(self.due_date, self.loan_duration)
+    before_save {self.loan_schedule = generate_loan_schedule(self.due_date, self.loan_duration)}
     before_save :initial_loan_balance
-    belongs_to :client
+    belongs_to :client, inverse_of: :short_loans
     belongs_to :relationship_officer
 
     private 
@@ -15,18 +15,18 @@ class ShortLoan < ApplicationRecord
             self.outstanding_loan_balance = self.initial_balance
         end
 
-        def generate_loan_schedule(due_date, loan_duration)
+        def generate_loan_schedule(due_date, loan_duration) #fix this method remove parameters use self. 
             days = 7.days
             status = 'Not Paid'
             due_date_status = Hash.new
             due_date_status[due_date] = status
-            @loan_schedule = [due_date_status]
+            loan_schedule = [due_date_status]
             (loan_duration -1).times do 
                 due_date += days
                 due_date_status[due_date] = status
-                @loan_schedule << due_date_status
+                loan_schedule << due_date_status
             end
-            self.loan_schedule = @loan_schedule
+            loan_schedule
         end
 
 end
