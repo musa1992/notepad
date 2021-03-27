@@ -5,7 +5,7 @@ class ShortLoan < ApplicationRecord
     validates :due_date, presence: true
     before_save :generate_loan_schedule(self.due_date, self.loan_duration)
     before_save :initial_loan_balance
-
+    belongs_to :client
 
     private 
 

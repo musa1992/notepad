@@ -1,0 +1,2 @@
+module ShortLoansHelper
+end

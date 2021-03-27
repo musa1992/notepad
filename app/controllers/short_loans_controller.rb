@@ -1,0 +1,2 @@
+class ShortLoansController < ApplicationController
+end
