@@ -7,7 +7,7 @@ class ShortLoan < ApplicationRecord
     before_save :initial_loan_balance
     belongs_to :client, inverse_of: :short_loans
     belongs_to :relationship_officer
-
+    
     private 
 
         def initial_loan_balance

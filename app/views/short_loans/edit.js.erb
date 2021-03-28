@@ -1,4 +1,10 @@
 
+myModal = document.querySelector('#myModal');
+while (myModal.firstChild) {
+    myModal.removeChild(myModal.lastChild);
+}
+myModal.insertAdjacentHTML("beforeend", "<%= j (render "modal", loan: @loan)%>")
+
 document.querySelector('#myModal').style.display = "block";
 
 document.querySelector('.close-modal').onclick = function () {
