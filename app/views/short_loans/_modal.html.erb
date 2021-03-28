@@ -3,7 +3,7 @@
     
     <span class="close-modal">&times;</span>
     <p class="title">Client payment status</p>
-    <%= form_with model: @loan  do |form| %>
+    <%= form_with model: @loan, local: true  do |form| %>
         <div class="payment-status">
             <div>
                 <%= form.label "Full payment" %>

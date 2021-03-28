@@ -7,6 +7,7 @@ class ClientsController < ApplicationController
     end
 
     def create
+        
         @client = current_user.clients.build(client_params)
         if @client.save
             flash[:success] = "Created"
@@ -35,13 +36,6 @@ class ClientsController < ApplicationController
         Client.update_client_details(params)
         respond_to do |format|
             @client = Client.find(params[:id])
-            format.js
-        end
-    end
-
-    def payment
-        session[:client_id] = params[:id]
-        respond_to do |format|
             format.js
         end
     end

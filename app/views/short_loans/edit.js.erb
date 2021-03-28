@@ -7,6 +7,8 @@ myModal.insertAdjacentHTML("beforeend", "<%= j (render "modal", loan: @loan)%>")
 
 document.querySelector('#myModal').style.display = "block";
 
+
+
 document.querySelector('.close-modal').onclick = function () {
     document.querySelector('#myModal').style.display = "none";
 }

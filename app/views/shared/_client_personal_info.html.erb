@@ -22,22 +22,30 @@
         </div>
         <div class="create-new-loan">
             <h3>Add new loan</h3>
-            <%= form_for client ,class: "client-page-forms" do |form| %>
+            <%= form_with model: ShortLoan.new ,local: true ,class: "client-page-forms" do |form| %>
+                <%= form.hidden_field :relationship_officer_id , value: current_user.id %>
+                <%= form.hidden_field :client_id , value: client.id%>
+
                 <div>
                     <%= form.label :loan_amount , "Loan Amount", class: "client-label"%>
-                    <%= form.text_field :loan_duration, class: "client-input"%> <!--add loan_amount coloumn to db remove loan_duration is just a place holder> <-->
+                    <%= form.text_field :loan_amount, class: "client-input"%>
                 </div>
                 <div>
                     <%= form.label :loan_duration , "Loan Duration", class: "client-label"%>
-                    <%= form.text_field :loan_duration, class: "client-input" %> 
+                    <%= form.select :loan_duration, [5,7,10], class: "client-input" %> 
                 </div>
                 <div>
-                    <%= form.label :installment_amount , "Instalment Amount", class: "client-label"%>
-                    <%= form.text_field :installment_amount, class: "client-input" %> 
+                    <%= form.label :instalment_amount , "Instalment Amount", class: "client-label"%>
+                    <%= form.text_field :instalment_amount, class: "client-input" %> 
+                </div>
+                <div>
+                    <%= form.label :due_date, "Due Date", class: "client-label"%>
+                    <i class="fa fa-calendar"></i>
+                    <%= form.text_field :due_date,class: "date client-input"%>
+                            
                 </div>
                  <%= form.submit "Add", class: "client-btn btn"%>
             <% end %>
-           
         </div>
     </div>
 </section>
