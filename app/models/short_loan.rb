@@ -42,12 +42,13 @@ class ShortLoan < ApplicationRecord
             loop_control = self.loan_duration
             date = self.due_date
             days = 7.days
+            instalment = self.instalment_amount
             status = 'Not Paid'
             schedule = []
-            schedule << [date,status]
+            schedule << [date,status,instalment]
             (loop_control -1).times do 
                 date += days
-                schedule << [date,status]
+                schedule << [date,status,instalment]
             end
             self.loan_schedule = schedule
         end
