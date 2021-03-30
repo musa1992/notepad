@@ -10,7 +10,7 @@
                 <%= form.check_box :full_payment %>
             </div>
             <div>
-                <p>For partial payment, enter amount paid</p>
+                <p>For partial payment or over payment, Enter amount paid</p>
                 <%= form.text_field :amount, placeholder: 'Kshs', id: 'partial-payment'%>
             </div>
                 <%= form.submit "Send", class: "modal-btn"%>

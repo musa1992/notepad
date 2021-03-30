@@ -39,7 +39,7 @@ class RelationshipOfficer < ApplicationRecord
         @dues = []
         self.short_loans.each do |loan|
             loan.loan_schedule.each do |element|
-                if element.first.to_datetime.today? && element.last == 'Not Paid'
+                if element.first.to_datetime.today? && element.last.to_i.positive?
                     @dues << loan
                 end
             end

@@ -11,23 +11,20 @@ class ShortLoan < ApplicationRecord
     
 
     def instalment_repayment(params) 
-        instalment_status = 'paid'
-        amount = 0
-       loan = ShortLoan.find(params[:id])
-       schedule = []
-       if params[:short_loan][:full_payment] == "1"
-            loan.loan_schedule.each do |element|
-                if element.first.to_datetime.today?
-                    element[1] = instalment_status
+        loan = ShortLoan.find(params[:id])
+        amount = amount_paid(params[:short_loan],loan)
+        schedule = loan.loan_schedule
+        schedule.each_with_index do |element, index|
+            if element.first.to_datetime.today?
+                instalment = element[2].to_i
+                if (instalment - amount).zero? || (instalment - amount).positive?
+                    element[2] = instalment - amount
+                else
+                    schedule = overpayment(index,amount,schedule)
                 end
-                schedule << element
             end
-        else
-            schedule = loan.loan_schedule
-        end
-    
-       amount = amount_paid(params[:short_loan],loan)
-       update_hash = {loan_schedule: schedule, outstanding_loan_balance: update_outstanding_loan_balance(amount.to_i,loan)}
+        end 
+       update_hash = {loan_schedule: schedule, outstanding_loan_balance: update_outstanding_loan_balance(amount,loan)}
        loan.update(update_hash)
     end
 
@@ -65,7 +62,22 @@ class ShortLoan < ApplicationRecord
             else
                 amount = payment_hash[:amount]
             end
-            amount
+            amount.to_i
+        end
+
+        def overpayment(index,amount,schedule)
+
+            until amount <= 0 do
+                instalment = schedule[index][2].to_i
+                if amount >= instalment
+                    schedule[index][2] = 0
+                else
+                    schedule[index][2] = instalment - amount 
+                end
+                index += 1
+                amount -= instalment
+            end
+            schedule     
         end
 
 end
