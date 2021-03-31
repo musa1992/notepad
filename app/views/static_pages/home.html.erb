@@ -60,22 +60,9 @@
                 <p>Amount Due</p>
             </div>
         </div>
-        <% current_user.loans_due.each do |loan|%>
-            <div class="row client">
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <p><%= Client.find_by(id: loan.client_id).name %></p>
-                </div>
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <p><%= Client.find_by(id: loan.client_id).phone_no %></p>
-                    <div class="paid-checkbox">
-                        <input type="checkbox" name="paid" id="paid" data-remote="true" data-url="/short_loans/<%= loan.id%>/edit" >
-                    </div>
-                </div>
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <p><%= loan.instalment_amount%></p>
-                </div>
-            </div>
-        <% end %>
+        <div>
+            <%= render partial: "clients/client", collection: @client_details %>
+        </div>
     </section>
 </main>
 

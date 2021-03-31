@@ -1,0 +1,15 @@
+<div class="client row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <p><%= client[:name] %></p>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <p><%= client[:phone_no] %></p>
+    </div>
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+       <p><%= client[:instalment]%></p>
+       <div class="paid-checkbox">
+            <label for="paid">Paid</label>
+            <input type="checkbox" name="paid" id="paid" data-remote="true" data-url="/short_loans/<%= client[:loan_id]%>/edit" >
+        </div>
+    </div> 
+</div>

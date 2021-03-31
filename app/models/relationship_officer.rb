@@ -40,20 +40,43 @@ class RelationshipOfficer < ApplicationRecord
         self.short_loans.each do |loan|
             loan.loan_schedule.each do |element|
                 if element.first.to_datetime.today? && element.last.to_i.positive?
-                    @dues << loan
+                    loan_info = {}
+                    loan_info[:client_id] = loan.client_id
+                    loan_info[:loan_id] = loan.id
+                    loan_info[:instalment] = element.last.to_i
+                    @dues << loan_info
                 end
             end
         end
         @dues
     end
 
+    def client_details
+       details = []
+        loans_due.each do |loan|
+            
+            customer = Client.find(loan[:client_id])
+            client = {}
+            client[:name] = customer.name
+            client[:phone_no] = customer.phone_no
+            client[:loan_id] = loan[:loan_id]
+            client[:instalment] = loan[:instalment]
+            details << client
+        end
+        details
+    end
+
     def total_dues
         return 0 if loans_due.empty?
-        loans_due.map{|loan| loan.instalment_amount}.reduce(:+)
+        loans_due.map{|element| element[:instalment]}.reduce(:+)
     end
 
     def client_count
         loans_due.count
+    end
+
+    def collection_rate
+        
     end
 
     def search(search)
