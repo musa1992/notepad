@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_092002) do
+ActiveRecord::Schema.define(version: 2021_04_02_190821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 2021_03_27_092002) do
     t.bigint "relationship_officer_id"
     t.string "status"
     t.index ["relationship_officer_id"], name: "index_clients_on_relationship_officer_id"
+  end
+
+  create_table "metrics", force: :cascade do |t|
+    t.datetime "date"
+    t.decimal "amount_due", precision: 10, scale: 2
+    t.decimal "amount_collected", precision: 10, scale: 2
+    t.integer "accounts_due"
+    t.bigint "relationship_officer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["relationship_officer_id"], name: "index_metrics_on_relationship_officer_id"
   end
 
   create_table "relationship_officers", force: :cascade do |t|
@@ -55,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_03_27_092002) do
   end
 
   add_foreign_key "clients", "relationship_officers"
+  add_foreign_key "metrics", "relationship_officers"
   add_foreign_key "short_loans", "clients"
   add_foreign_key "short_loans", "relationship_officers"
 end
