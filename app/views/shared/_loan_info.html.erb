@@ -9,10 +9,10 @@
                     <th>Instalment</th>
                     <th>Instalment Dates</th>
                 </tr>
-                <%client.loan_schedule.each_with_index do |date, idx| %>
+                <%@short_loan.loan_schedule.each_with_index do |element, idx| %>
                     <tr>
                         <td><%= idx + 1 %></td>
-                        <td><%= client.format_date(date) %></td> 
+                        <td><%= @client.format_date(element.first) %></td> 
                     </tr>
 
                 <% end %>
@@ -20,13 +20,24 @@
         </div>
         <div class="other-loan-info">
             <h3>Loan Information</h3>
-            <p>Initial Loan Balance: <%= client.initial_loan_balance%></p>
-            <div>
-                <p>OLB</p>
-                <p>pie chart with percentage in middle</p>
-            </div>
-            <p>instalment Amount: <%= client.installment_amount%></p>
-            <p>Loan Duration: <%= client.loan_duration%></p>
+            <table>
+                <tr>
+                    <td>Initial Loan Balance</td>
+                    <td><%=@short_loan.initial_balance %></td>
+                </tr>
+                <tr>
+                    <td>Outstanding Loan Balance</td>
+                    <td><%= @short_loan.outstanding_loan_balance%></td>
+                </tr>
+                <tr>
+                    <td>Instalment Amount</td>
+                    <td> <%= @short_loan.instalment_amount%></td>
+                </tr>
+                <tr>
+                    <td>Loan Duration</td>
+                    <td><%= @short_loan.loan_duration%></td>
+                </tr>
+            </table>
         </div>
     </div>
 </main>

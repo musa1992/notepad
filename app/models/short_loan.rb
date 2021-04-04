@@ -11,9 +11,11 @@ class ShortLoan < ApplicationRecord
     
 
     def instalment_repayment(params) 
+    
         loan = ShortLoan.find(params[:id])
         amount = amount_paid(params[:short_loan],loan)
         schedule = loan.loan_schedule
+        instalment = 0
         schedule.each_with_index do |element, index|
             if element.first.to_datetime.today?
                 instalment = element[2].to_i
@@ -26,6 +28,9 @@ class ShortLoan < ApplicationRecord
         end 
        update_hash = {loan_schedule: schedule, outstanding_loan_balance: update_outstanding_loan_balance(amount,loan)}
        loan.update(update_hash)
+       amount_collected = amount > instalment ? instalment : amount
+
+       Metric.update_amount_collected(params[:relationship_officer_id],amount_collected,Date.today)
     end
 
     private 

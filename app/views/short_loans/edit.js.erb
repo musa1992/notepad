@@ -1,19 +1,51 @@
+checkBoxesPaid = document.querySelectorAll('.pay');
+var checkedBox;
 
 myModal = document.querySelector('#myModal');
 while (myModal.firstChild) {
     myModal.removeChild(myModal.lastChild);
 }
-myModal.insertAdjacentHTML("beforeend", "<%= j (render "modal", loan: @loan)%>")
-
-document.querySelector('#myModal').style.display = "block";
 
 
+for (var i = 0; i < checkBoxesPaid.length; i++) {
+        if (checkBoxesPaid[i].checked) {
+            myModal.insertAdjacentHTML("beforeend", "<%= j (render "modal", loan: @loan)%>")
+            document.querySelector('#myModal').style.display = "block";
+            checkedBox = checkBoxesPaid[i]
+        }
+        
+    }
 
 document.querySelector('.close-modal').onclick = function () {
     document.querySelector('#myModal').style.display = "none";
+    checkedBox.click()
 }
+
+
 
 document.querySelector('.modal-btn').onclick = function () {
     document.querySelector('#myModal').style.display = "none";
+    checkedBox.click()
 }
+
+
+
+checkBoxPaidFull = document.querySelector('#short_loan_full_payment');
+partialPayment =  document.querySelector('#partial-payment')
+checkBoxPaidFull.onclick = function () {
+    console.log(checkBoxPaidFull.checked)
+    if (checkBoxPaidFull.checked) {
+        partialPayment.disabled = true;
+    }else {
+        partialPayment.removeAttribute('disabled');
+    }
+      
+}
+
+
+ 
+   
+ 
+
+
 

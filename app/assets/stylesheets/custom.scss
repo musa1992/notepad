@@ -248,18 +248,18 @@ p, h1 {
 }
 
 /* loan info partial **/
-
+table {
+    width: 100%;
+    margin-top: 1.5em;
+    th,td {
+        padding: 0.5em;
+        border: 0.5px solid black; 
+        text-align: center; 
+    }
+}
 .loan-schedule {
     margin-bottom: 2.5em;
-    table {
-        width: 100%;
-        margin-top: 1.5em;
-        th,td {
-            padding: 0.5em;
-            border: 0.5px solid black; 
-            text-align: center; 
-        }
-    }
+    
 }
 
 .other-loan-info {

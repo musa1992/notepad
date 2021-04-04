@@ -14,7 +14,9 @@ class ShortLoansController < ApplicationController
         end
     end
     def update
-        @loan.instalment_repayment(params)
+        new_params = params
+        new_params[:relationship_officer_id] = current_user.id
+        @loan.instalment_repayment(new_params)
         redirect_to home_path
     end
 

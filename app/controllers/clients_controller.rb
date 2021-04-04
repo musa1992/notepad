@@ -9,6 +9,7 @@ class ClientsController < ApplicationController
     def create
         
         @client = current_user.clients.build(client_params)
+        Metric.create_metric(client_params[:short_loans_attributes][:"0"])
         if @client.save
             flash[:success] = "Created"
             redirect_to home_path
@@ -19,15 +20,16 @@ class ClientsController < ApplicationController
 
     def search
         @client = current_user.search(params[:phone_no])
+       
         if @client.nil?
             redirect_to request.referrer, notice: "Client not found"
         else
-            session[:client_id] = @client.id
+            @short_loan = @client.short_loans.find(@client.id)
             render 'show'
         end
 
     end
-
+    
     def show
 
     end
@@ -40,12 +42,7 @@ class ClientsController < ApplicationController
         end
     end
 
-    def client_payment
-        respond_to do |format|
-            @client_id = session[:client_id]
-            format.js
-        end
-    end
+    
     
     private
 

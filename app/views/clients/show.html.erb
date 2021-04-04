@@ -27,9 +27,10 @@
         <div id="client-display">
             <%= render 'shared/client_personal_info', client: @client%>
         </div>
-        <%# <div id="loan-display">
-            <%= render 'shared/loan_info', client: @client %>
+        <div id="loan-display">
+            <%= render 'shared/loan_info', locals: {short_loan: @short_loan, client: @client } %>
         </div> 
         
     </section>
+
 </section>

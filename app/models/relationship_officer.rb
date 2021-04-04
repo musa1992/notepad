@@ -11,6 +11,7 @@ class RelationshipOfficer < ApplicationRecord
     has_secure_password
     validates :password, presence: true, length: {minimum: 6}
     has_many :clients 
+    has_many :metrics
     has_many :short_loans, :through => :clients
 
     # def RelationshipOfficer.digest(string)
@@ -35,15 +36,19 @@ class RelationshipOfficer < ApplicationRecord
     # def send_activation_link
     #     RelationshipOfficerMailer.account_activation(self).deliver_now
     # end
+     
     def loans_due
         @dues = []
         self.short_loans.each do |loan|
+           
             loan.loan_schedule.each do |element|
-                if element.first.to_datetime.today? && element.last.to_i.positive?
+                
+                if element.first.to_date.today? && element.last.to_i.positive?
                     loan_info = {}
                     loan_info[:client_id] = loan.client_id
                     loan_info[:loan_id] = loan.id
                     loan_info[:instalment] = element.last.to_i
+                    
                     @dues << loan_info
                 end
             end
@@ -62,13 +67,15 @@ class RelationshipOfficer < ApplicationRecord
             client[:loan_id] = loan[:loan_id]
             client[:instalment] = loan[:instalment]
             details << client
+        
         end
         details
     end
 
     def total_dues
-        return 0 if loans_due.empty?
-        loans_due.map{|element| element[:instalment]}.reduce(:+)
+        return 0 if self.metrics.find_by(date: Date.today).nil?
+
+        self.metrics.find_by(date: Date.today).amount_due
     end
 
     def client_count
@@ -76,7 +83,9 @@ class RelationshipOfficer < ApplicationRecord
     end
 
     def collection_rate
-        
+        return 0 if self.metrics.find_by(date: Date.today).nil?
+        rate = (self.metrics.find_by(date: Date.today).amount_collected / self.metrics.find_by(date: Date.today).amount_due) * 100
+        rate.floor
     end
 
     def search(search)
